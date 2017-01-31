@@ -59,7 +59,7 @@ $(function() {
          * hiding/showing of the menu element.
          */
         it('hidden by default', function() {
-          expect($('body').attr('class')).toEqual('menu-hidden');
+          expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
          /* TODO: Write a test that ensures the menu changes
@@ -71,9 +71,9 @@ $(function() {
 
         it('hiding/showing', function() {
           menuIconLink = $('.menu-icon-link');
-          menuIconLink.click()
+          menuIconLink.click();
           expect($('body').attr('class')).not.toEqual('menu-hidden');
-          menuIconLink.click()
+          menuIconLink.click();
           expect($('body').attr('class')).toEqual('menu-hidden');
         });
 
@@ -88,14 +88,11 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         beforeEach(function(done){
-          loadFeed(0, function(){
-            done();
-          });
+          loadFeed(0, done);
         });
 
-        it('completes its work', function(done) {
-            expect($('.entry').length).not.toBe(0);
-          done();
+        it('completes its work', function() {
+            expect($('.feed .entry').length).not.toBe(0);
         });
     });
 
