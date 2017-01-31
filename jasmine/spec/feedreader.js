@@ -72,9 +72,9 @@ $(function() {
         it('hiding/showing', function() {
           menuIconLink = $('.menu-icon-link');
           menuIconLink.click();
-          expect($('body').attr('class')).not.toEqual('menu-hidden');
+          expect($('body').hasClass('menu-hidden')).not.toBe(true);
           menuIconLink.click();
-          expect($('body').attr('class')).toEqual('menu-hidden');
+          expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
     });
