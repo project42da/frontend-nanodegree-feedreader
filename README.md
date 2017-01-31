@@ -1,6 +1,9 @@
 frontend-nanodegree-feedreader
 ---
 
+**You can check this project [here](http://project42da.github.io/frontend-nanodegree-feedreader/)**
+
+
 ###Installation
 
 Use git or Download.
