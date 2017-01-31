@@ -86,7 +86,7 @@ $(function() {
         });
 
         it('completes its work', function(done) {
-            expect(document.getElementsByClassName('entry').length).not.toBe(0);
+            expect($('.entry').length).not.toBe(0);
           done();
         });
     });
@@ -97,5 +97,24 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        var oldFeed, newFeed;
+        
+        beforeEach(function(done){
+
+          loadFeed(0, function() {
+            oldFeed = $('.feed').html();
+
+            loadFeed(1, function() {
+              newFeed = $('.feed').html();
+              done();
+            });
+
+          });
+        });
+
+        it('new feed is loaded', function(done) {
+            expect(oldFeed).not.toEqual(newFeed);
+            done();
+        });
     });
 }());
